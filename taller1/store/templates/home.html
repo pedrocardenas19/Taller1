@@ -1,0 +1,8 @@
+<!-- home.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'create_product' %}" class="btn btn-primary">Create Product</a>
+  <a href="{% url 'list_products' %}" class="btn btn-secondary">List Products</a>
+{% endblock %}

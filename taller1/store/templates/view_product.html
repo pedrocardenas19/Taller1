@@ -1,0 +1,12 @@
+<!-- view_product.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Product Details</h2>
+  <p>Title: {{ product.title }}</p>
+  <p>Description: {{ product.description }}</p>
+  <p>Price: {{ product.price }}</p>
+  <p>Image: <img src="{{ product.image.url }}" alt="{{ product.title }}"></p>
+  <a href="{% url 'delete_product' product.id %}">Delete Product</a>
+{% endblock %}

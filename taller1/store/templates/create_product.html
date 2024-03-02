@@ -1,0 +1,26 @@
+<!-- create_product.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Create Product</h2>
+
+  <!-- Muestra mensajes de error de Django -->
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Error:</strong>
+      {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+          {{ field|title }} - {{ error }}<br>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <form method="post" enctype="multipart/form-data" id="productForm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Product</button>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+<!-- list_products.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>List of Products</h2>
+    <div class="row">
+      {% for product in products %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            {% if product.image_url %}
+              <img class="card-img-top" src="{{ product.image_url }}" alt="{{ product.title }}">
+            {% else %}
+              <div class="no-image-placeholder">No image available</div>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-price">Price: ${{ product.price }}</p>
+              <a href="{% url 'view_product' product.id %}" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
